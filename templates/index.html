@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script>https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js</script> -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<title>Asteri Platina</title>
+</head>
+<body>
+	<!-- Header -->
+	<nav class="navbar" style="top: 1;" >
+		<div class="inner-width">
+			<img src="{{ url_for('static', filename='logo1.jpg') }}" class="logo"></img>
+			<button class="menu-toggler">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+		<div class="navbar-menu">
+			<a href="/">HOME</a>
+			<a href="/#about">ABOUT</a>
+			<a href="/#services">SERVICE</a>
+			<a href="/#contact">CONTACT</a>
+			{% if id is none%}
+        	<a href="/login">LOGIN</a>
+        	{% endif %}
+			{% if id is not none%}
+			{% if id[:3]=="REQ"%}
+			<a href="/requestor_homepage">PROFILE</a>
+			<a href="/logout">LOG OUT</a>
+			{% endif %}
+			{% if id[:3]=="DON"%}
+			<a href="/donor_homepage">PROFILE</a>
+			<a href="/logout">LOG OUT</a>
+			{% endif %}
+			{% if id[:3]=="NGO"%}
+			<a href="/ngo_homepage">PROFILE</a>
+			<a href="/logout">LOG OUT</a>
+			{% endif %}
+			{% if id[:3]=="ADM"%}
+			<a href="/admin_homepage">PROFILE</a>
+			<a href="/logout">LOG OUT</a>
+			{% endif %}
+			{% endif %}
+			
+		</div>
+	</div>
+</nav>
+	<section id="home" style="background-image:url('#');">
+	<div class="inner-width">
+		<div class="content">
+			<h1></h1>
+			<div class="sm">
+				<a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+				<a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+				<a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+				<a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>		
+			</div>
+			<div class="buttons">
+				<a href="#">CONTACT</a>
+			</div>
+		</div>
+	</div>
+</section>
+		<section id="about">
+			<div class="inner-width">
+				<h1 class="section-title">ABOUT</h1>
+				<div class="about-content">
+					<div class="about-text">
+					<h2>Hi! We are here to help you!</h2>
+					<!-- <h3>
+						<span>Coordinator</span>
+						<span>Requestor</span>
+						<span>Supporter</span>
+					</h3> -->
+					<p style="justify-content: center;">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To fulfil the growing need for improved health-care facilities and services, we can
+						tap into the power of the internet and its vast network, which allows individuals to
+						help one another with a single click from their phone. The planned Medicine
+						Donation system seeks to provide an online platform for giving medicines or
+						unused medicines to those who are in need. Users can sign up for this system by
+						filling out the required information.
+						
+					</p>
+					<br>
+					<br>
+					<h2>Countries that our system helped</h2>
+				</div>
+				</div>
+			<div class="skills">
+			<div class="skill">
+				<div class="skill-info">
+					<span>India</span>
+					<span>90%</span>
+				</div>
+				<div class="skill-bar html"></div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>United states</span>
+					<span>40%</span>
+				</div>
+				<div class="skill-bar css"></div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>Japan</span>
+					<span>80%</span>
+				</div>
+					<div class="skill-bar js"></div>
+			</div>
+		
+			<div class="skill">
+				<div class="skill-info">
+					<span>China</span>
+					<span>100%</span>
+				</div>
+				<div class="skill-bar python"></div>
+			</div>
+			
+			<div class="skill">
+				<div class="skill-info">
+					<span>Australia</span>
+					<span>70%</span>
+				</div>
+					<div class="skill-bar photoshop"></div>
+			</div>
+		
+			<div class="skill">
+				<div class="skill-info">
+					<span>Korea</span>
+					<span>80%</span>
+				</div>
+					<div class="skill-bar aftereffect"></div>
+			</div>
+		
+		</div>
+			</div>
+		</section>
+	<section id="services" class="servicebar">
+		<div class="inner-width">
+			<h1 class="section-title">SERVICES</h1>
+			<div class="services">
+			<div class="service">
+			<h4>USES</h4>
+			<br>
+			<br>
+			<p>Helping poor people for medication
+				<br><br>Reducing the number of medicines going in vain</p>
+			</div>
+			<div class="service">
+			<h4>EASE OF ACCESS</h4>
+			<br>
+			<br>
+			<p>With just few steps, medicines can be requested and donated</p>
+			</div>
+			<div class="service">
+			<h4>SECURITY</h4>
+			<br>
+			<br>
+			<p>Medicines are verified before being donated to the requested people</p>
+			</div>
+			<div class="service">
+			<h4>DONOR</h4>
+			<br>
+			<br>
+			<p>Become a Donor just by signing in with a few details</p>
+			</div>
+			<div class="service">
+			<h4>REQUESTOR</h4>
+			<br>
+			<br>
+			<p>Request medicines in need within just few steps</p>
+			</div>
+			<div class="service">
+			<h4>NGO</h4>
+			<br>
+			<br>
+			<p>Special access to Charity Trusts and NGOs</p>
+			</div>
+		</div>
+	</section>
+	
+	<section id="contact">
+		<div class="inner-width">
+		<h1 class="section-title">CONTACT</h1>
+		<div class="contact-info">
+			<div class="item">
+			<ion-icon name="phone-portrait-outline"></ion-icon>
+			+91 9940724657
+		</div>
+		<div class="item">
+			<ion-icon name="pencil-outline"></ion-icon>
+			asteriplatina@gmail.com
+		</div>
+		<div class="item">
+			<ion-icon name="location-outline"></ion-icon>
+			INDIA
+		</div>
+		</div>
+		
+	<form action="" method="post" class="contact-form" >
+		<input type="text" class="name"  placeholder="YOUR FULL NAME" required>
+		<input type="text" class="email" placeholder="EMAIL ID" required>
+		<input type="text" class="subject"  placeholder="SUBJECT" required>
+		<textarea class="message" placeholder="YOUR SWEET MESSAGE TO US" required></textarea>
+		<input type="submit" value="SEND MESSAGE" class="btn">
+	
+	</form>
+	</div>
+	</section>
+<footer>
+	<div class="inner-width">
+	<div class="copyright">
+	&copy;2022 || Designed by Asteri Platina
+	</div>
+		<div class="sm">
+			<a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+			<a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+			<a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+			<a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+
+		
+		</div>
+	</div>
+</footer>
+<button class="goTop">
+<ion-icon name="chevron-up-circle-outline"></ion-icon></button>
+	<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+</body>
+</html>

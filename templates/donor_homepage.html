@@ -1,0 +1,140 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+
+</head>
+
+<body style="overflow: scroll; align-items: center">
+
+    <div class="main-container" style=" width:99vw;">
+
+        <!-- HEADER -->
+        <header class="block">
+            <ul class="header-menu horizontal-list">
+                <li>
+                    <a class="header-menu-tab" href="/"><span class="icon entypo-cog scnd-font-color"></span>Home</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="/#about"><span class="icon fontawesome-user scnd-font-color"></span>About</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="/#services"><span class="icon fontawesome-envelope scnd-font-color"></span>Services</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="/#contact"><span class="icon fontawesome-envelope scnd-font-color"></span>Contact</a>
+                </li>
+                <li>
+                    <a class="header-menu-tab" href="/logout">Logout</a>
+                </li>
+            </ul>
+            <div class="profile-menu">
+                <!-- <p>Me <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a></p> -->
+                <!-- <div class="profile-picture small-profile-picture">
+                    <img src="{{ url_for('static', filename='logo1.jpg') }}" class="logo"></img>
+                </div> -->
+            </div>
+            <style>
+                .alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+            </style>
+        </header>
+
+        <!-- LEFT-CONTAINER -->
+        {% for i in get_flashed_messages() %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{i}}
+          </div>
+          {% endfor %}
+        <div class="left-container container">
+            <div class="profile block"> <!-- PROFILE (MIDDLE-CONTAINER) -->
+                <!-- <a class="add-button" href="#28"><span class="icon entypo-plus scnd-font-color"></span></a> -->
+                <!-- <div class="profile-picture big-profile-picture clear">
+                    <img width="150px" alt="Anne Hathaway picture" src="suchal.jpeg" >
+                </div> -->
+                <br>
+                <br>
+                <h1 class="user-name">Welcome back : {{user_identity[0].user_name}}</h1>
+                {% set count = namespace(value=0) %}
+                {%for i in prev_donations%}
+                {% set count.value = count.value + 1 %}
+                {% endfor %}
+                <center>
+                    <div >
+                        <p>ID : {{donor_details[0].id}}</p>
+                        <p>Email : {{donor_details[0].email_id}}</p>
+                        <p>Aadhaar : {{donor_details[0].UniqueID}}</p>
+                        <p>No of previous donations : {{count.value}}</p>
+                    </div>
+                </center>
+                
+                
+            </div>
+        </div>
+
+        <!-- MIDDLE-CONTAINER -->
+        <div class="middle-container container">
+            
+            
+            <div class="tweets block " style="overflow: scroll;"> <!-- TWEETS (MIDDLE-CONTAINER) -->
+                <h2 class="titular" ></span>Previous Donations</h2>
+                {%for i in prev_donations%}
+                <div class="tweet first">
+                    <p>Donation ID : {{i.donation_id}} <br><br>Med ID : {{i.med_id}}<br>Donation Expiry : {{i.donation_expiry}}<br>Quantity: {{i.donation_quantity}}<br><a class="tweet-link" href="#17"></a></p>
+                    <!-- <p><a class="time-ago scnd-font-color" href="#18">3 minutes ago</a></p> -->
+                </div>
+                {% endfor %}
+                
+                
+                </div>
+            
+        </div>
+        
+        <div class="right-container container">
+      
+            <form class="tweets block " action="/donor_homepage" method="POST">
+                <h1 class="titular">Donate Medicine</h1>
+                <br>
+                <input type="text" name="medicine" list="medicine-list" placeholder="Medicine name">
+                <datalist id="medicine-list" >
+                    {% for i in range(12) %}
+                    <option value="{{med_list[i].med_id}}">{{med_list[i].med_name}}</option>
+                    {% endfor %}
+                </datalist>
+                <input type="number" name="quantity" placeholder="Quantity">
+                <input id="lastdate" name="expirydate" type="date" placeholder="Expiry date">
+                <input type="submit">
+            </form>
+        
+            
+           
+            
+            
+        </div> <!-- end right-container -->
+    
+    </div> <!-- end main-container -->
+
+</body>
+</html>
